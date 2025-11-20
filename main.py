@@ -47,7 +47,16 @@ lbl_Cha.grid(row=5, column=0)
 
 # Entrada do usuário
 entry_Panquecas = Entry(f1,font=("Arial",15,'bold'),textvariable=Panquecas,bd=6,width=8,bg="lightpink")
+entry_Misto = Entry(f1,font=("Arial",15,'bold'),textvariable=Misto,bd=6,width=8,bg="lightpink")
+entry_Cookies = Entry(f1,font=("Arial",15,'bold'),textvariable=Cookies,bd=6,width=8,bg="lightpink")
+entry_Cafe = Entry(f1,font=("Arial",15,'bold'),textvariable=Cafe,bd=6,width=8,bg="lightpink")
+entry_Cha = Entry(f1,font=("Arial",15,'bold'),textvariable=Cha,bd=6,width=8,bg="lightpink")
+
 entry_Panquecas.grid(row=1,column=1)
+entry_Misto.grid(row=2,column=1)
+entry_Cookies.grid(row=3,column=1)
+entry_Cafe.grid(row=4,column=1)
+entry_Cha.grid(row=5,column=1)
 
 
 root.mainloop()
