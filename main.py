@@ -3,13 +3,45 @@ from tkinter import *
 
 # Cria root-janela
 root=Tk()
-root.geometry("1000x500")
+root.geometry("1100x500")
 root.title("Gerenciamento")
 root.resizable(False,False)
 
+# Função pra limpar campos de entrada
+def Limpar():
+    entry_Panquecas.delete(0,END)
+    entry_Misto.delete(0,END)
+    entry_Cookies.delete(0,END)
+    entry_Cafe.delete(0,END)
+    entry_Cha.delete(0,END)
+
+# Função para calcular total da conta
+def Total():
+    try:a1=int(Panquecas.get())
+    except:a1=0
+
+    try:a2=int(Misto.get())
+    except:a2=0
+
+    try:a3=int(Cookies.get())
+    except:a3=0
+
+    try:a4=int(Cafe.get())
+    except:a4=0
+
+    try:a5=int(Cha.get())
+    except:a5=0
+
+    # Definir custos entradas x preços
+    C1=25*a1
+    C2=15*a2
+    C3=9*a3
+    C4=5*a4
+    C5=4*a5
+
+
 Label(text="Gerenciamento de contas", bg="rosybrown", fg="black", font=("Georgia",33),width="300",height="2").pack()
 
-# Cartão de menu
 # Coluna dos preços-edição do frame de menu
 f=Frame(root,bg="rosybrown",highlightbackground="LIGHTGRAY",highlightthickness=1,width=350,height=350)
 f.place(x=10,y=118)
@@ -22,7 +54,7 @@ Label(f,font=("Georgia",15,'bold'),text="Cookies..............R$ 9/unid",fg="bla
 Label(f,font=("Georgia",15,'bold'),text="Café...................R$ 5/350ml",fg="black",bg="rosybrown").place(x=10,y=170)
 Label(f,font=("Georgia",15,'bold'),text="Chá....................R$ 4/200ml",fg="black",bg="rosybrown").place(x=10,y=200)
 
-# Cria conteiner de entradas do usuário
+# f1 = Frame de entradas do usuário
 f1=Frame(root,bd=5,height=370,width=300,bg="seashell", relief=GROOVE)
 f1.place(x=360, y=118)
 
@@ -33,8 +65,11 @@ Cafe=StringVar()
 Cha=StringVar()
 Total_da_conta=StringVar()
 
-# Label 
+# f2 = Frame para conta
+f2=Frame(root, bg="seashell",bd=5,height=150,width=300,relief=GROOVE)
+f2.place(x=710,y=118)
 
+# Label de quantidades
 Label(f1,text="Quantidades",fg="black",bg="seashell",font=("georgia",23,'bold')).grid(row=0, column=0)
 
 lbl_Panquecas=Label(f1,font=("Arial",13,'bold'),text="Panquecas",width=9,fg="black", bg="seashell")
@@ -60,6 +95,13 @@ entry_Misto.grid(row=2,column=1)
 entry_Cookies.grid(row=3,column=1)
 entry_Cafe.grid(row=4,column=1)
 entry_Cha.grid(row=5,column=1)
+
+#limpar campos de quantidades inseridas
+btn_limpar=Button(f1,bd=5,fg="black",bg="rosybrown",font=("Georgia",12,'bold'),width=10,text="Limpar",command=Limpar)
+btn_limpar.grid(row=7,column=0)
+
+btn_total=Button(f1,bd=5,fg="black",bg="rosybrown",font=("Georgia",12,'bold'),width=10,text="Total da conta", command=Total)
+btn_total.grid(row=7,column=1)
 
 
 root.mainloop()
