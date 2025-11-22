@@ -39,6 +39,14 @@ def Total():
     C4=5*a4
     C5=4*a5
 
+    lbl_total=Label(f2,font=('arial',20,'bold'),text="Total",width=16,fg="black",bg="lightgray")
+    lbl_total.place(x=0,y=50)
+
+    entry_total=Entry(f2,font=('arial',20,'bold'),bd=6,width=14,bg="lightgray")
+    entry_total.place(x=0,y=90)
+    total_conta=str(C1+C2+C3+C4+C5)
+    entry_total.insert(0,total_conta)
+
 
 Label(text="Gerenciamento de contas", bg="rosybrown", fg="black", font=("Georgia",33),width="300",height="2").pack()
 
@@ -54,9 +62,13 @@ Label(f,font=("Georgia",15,'bold'),text="Cookies..............R$ 9/unid",fg="bla
 Label(f,font=("Georgia",15,'bold'),text="Café...................R$ 5/350ml",fg="black",bg="rosybrown").place(x=10,y=170)
 Label(f,font=("Georgia",15,'bold'),text="Chá....................R$ 4/200ml",fg="black",bg="rosybrown").place(x=10,y=200)
 
+
+
 # f1 = Frame de entradas do usuário
-f1=Frame(root,bd=5,height=370,width=300,bg="seashell", relief=GROOVE)
+f1=Frame(root,bd=5,height=350,width=300,bg="seashell", relief=GROOVE)
 f1.place(x=360, y=118)
+
+
 
 Panquecas=StringVar()
 Misto=StringVar()
@@ -66,10 +78,12 @@ Cha=StringVar()
 Total_da_conta=StringVar()
 
 # f2 = Frame para conta
-f2=Frame(root, bg="seashell",bd=5,height=150,width=300,relief=GROOVE)
+f2=Frame(root,bd=5,bg="lightyellow",height=350,width=300,relief=GROOVE)
 f2.place(x=710,y=118)
 
-# Label de quantidades
+conta=Label(f2,text="Custos",font=("Georgia",23,'bold'),bg="lightyellow",fg="black").place(x=90,y=0)
+
+# Label quantidades
 Label(f1,text="Quantidades",fg="black",bg="seashell",font=("georgia",23,'bold')).grid(row=0, column=0)
 
 lbl_Panquecas=Label(f1,font=("Arial",13,'bold'),text="Panquecas",width=9,fg="black", bg="seashell")
@@ -97,10 +111,10 @@ entry_Cafe.grid(row=4,column=1)
 entry_Cha.grid(row=5,column=1)
 
 #limpar campos de quantidades inseridas
-btn_limpar=Button(f1,bd=5,fg="black",bg="rosybrown",font=("Georgia",12,'bold'),width=10,text="Limpar",command=Limpar)
+btn_limpar=Button(f1,bd=5,fg="black",bg="rosybrown",font=("Georgia",10,'bold'),width=10,text="Limpar",command=Limpar)
 btn_limpar.grid(row=7,column=0)
 
-btn_total=Button(f1,bd=5,fg="black",bg="rosybrown",font=("Georgia",12,'bold'),width=10,text="Total da conta", command=Total)
+btn_total=Button(f1,bd=5,fg="black",bg="rosybrown",font=("Georgia",10,'bold'),width=10,text="Pagar conta", command=Total)
 btn_total.grid(row=7,column=1)
 
 
